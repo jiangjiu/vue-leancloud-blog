@@ -10,6 +10,7 @@
 'use strict';
 
 const tool = require('./tool');
+const AV = require('leanengine')
 
 let pub = {};
 
@@ -19,5 +20,15 @@ pub.hello = (req, res) => {
     hello: 'It works.'
   });
 };
+
+
+pub.contentList = (req, res) => {
+  let query = new AV.Query('ContentList')
+  query.descending('updatedAt')
+  query.limit(20)
+  query.find().then(data => {
+    res.send(data)
+  },error => {})
+}
 
 module.exports = pub;
