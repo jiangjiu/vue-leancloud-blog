@@ -18,10 +18,10 @@ router.map({
     component: Home
   },
   '/about': {
-    component: About
+    component: resolve => resolve(About)
   },
   '/tags': {
-    component: Tags
+    component: resolve => resolve(Tags)
   }
   // '/time-entries': {
   //   component: function (resolve) {

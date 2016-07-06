@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper">
     <vheader></vheader>
-    <router-view></router-view>
+    <router-view transition="fade" transition-mode="out-in"></router-view>
   </div>
 </template>
 
@@ -37,8 +37,17 @@
     color: #000;
   }
 
-  body ul, li {
+  body ul {
     list-style: none;
+    margin:0;
+    padding:0;
+  }
+
+  .fade-transition {
+    transition: opacity .3s ease;
+  }
+  .fade-enter, .fade-leave {
+    opacity: 0;
   }
 
 </style>
