@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div>
     <ul :class="[nav, isTop ? '' : navFixed]">
       <li>
         <a v-link="'./home'">主页</a>
@@ -26,7 +26,7 @@
     },
     ready () {
       window.onscroll = () => {
-        let scrollTop = document.body.scrollTop + document.documentElement.scrollTop
+        let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
         this.isTop = scrollTop === 0
       }
     }
@@ -42,16 +42,17 @@
     justify-content: flex-end;
     background-color: rgba(0, 0, 0, 0);
     color: #fff;
-    transition: background-color .4s;
+    transition: all .4s;
   }
 
   .nav-fixed {
-    background-color: rgba(0, 0, 0, 0.6);
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid #bababa;
   }
 
   .nav a {
     font-size: 14px;
-    color: #fff;
     display: block;
     padding: 18px;
     opacity: 1;
@@ -62,8 +63,9 @@
     opacity: 0.6;
   }
 
-  #header {
+  .header {
     height: 417px;
+    background-color: #9e9e9e;
     display: flex;
     flex-direction: column;
     background-image: url(http://huangxuan.me/img/home-bg.jpg);
@@ -75,5 +77,8 @@
     margin: auto;
     justify-content: center;
     align-items: center;
+  }
+  .header-title h1 {
+    font-size: 50px;
   }
 </style>
