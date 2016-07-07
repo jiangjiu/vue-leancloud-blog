@@ -8,3 +8,4 @@ start.sh
 .avoscloud/
 .idea/
 fe/.idea/.avoscloud/
+npm-debug.log

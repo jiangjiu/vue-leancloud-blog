@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="header-background"></div>
     <ul :class="[nav, isTop ? '' : navFixed]">
       <li>
         <a v-link="'./home'">主页</a>
@@ -47,7 +48,7 @@
 
   .nav-fixed {
     color: #000;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     border-bottom: 1px solid #bababa;
   }
 
@@ -64,11 +65,21 @@
   }
 
   .header {
-    height: 417px;
-    background-color: #9e9e9e;
+    height: 360px;
     display: flex;
     flex-direction: column;
-    background-image: url(http://huangxuan.me/img/home-bg.jpg);
+
+  }
+  .header-background {
+    z-index: -1;
+    position: absolute;
+    height:360px;
+    width:100%;
+    left:0;
+    top:0;
+    background: #9e9e9e url('../assets/banner.jpeg') 100% no-repeat;
+    /*filter:blur(1px);*/
+    background-size: cover;
   }
 
   .header-title {
@@ -78,6 +89,7 @@
     justify-content: center;
     align-items: center;
   }
+
   .header-title h1 {
     font-size: 50px;
   }
