@@ -61,7 +61,7 @@
   }
 
   .nav a:hover {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 
   .header {

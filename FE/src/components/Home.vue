@@ -1,7 +1,7 @@
 <template>
   <div class="list-wrapper">
-    <ul class="list-container">
-      <li class="" v-for="item in items">
+    <ul class="list-container" id="list-ul">
+      <li v-for="item in items">
         <a v-link="'./about'">
           <p class="list-title">{{item.title}}</p>
           <p class="list-abstract"><i>{{item.abstract}}</i></p>
@@ -27,7 +27,6 @@
     },
     created () {
       this.getList()
-      console.log(this.state)
     }
   }
 </script>
@@ -55,7 +54,7 @@
   }
 
   .list-updated {
-    font-family: "Comic Sans MS",curslve,sans-serif;
+    font-family: "Comic Sans MS", curslve, sans-serif;
     font-size: 18px;
     color: #8b8b8b;
     margin-bottom: 0;
@@ -65,15 +64,13 @@
     padding: 1rem 2rem;
     background-color: #fff;
     display: block;
-    opacity: 1;
     transition: all .3s;
   }
 
   .list-container li a:hover {
-    color: #d2d2d2;
-    opacity: .8;
-    background-color: #f6f6f6;
+    background-color: #ededed;
   }
+
 
 
 </style>

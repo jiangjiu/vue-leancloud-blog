@@ -2,7 +2,7 @@
   <div id="wrapper">
     <vheader class="header"></vheader>
     <div class="main">
-      <router-view  transition="fade" transition-mode="out-in" keep-alive></router-view>
+      <router-view transition="fade" transition-mode="out-in" keep-alive></router-view>
     </div>
     <aside class="aside"></aside>
     <vfooter class="footer"></vfooter>
@@ -50,12 +50,11 @@
     color: inherit;
   }
 
-  body ul,li {
+  body ul, li {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-
 
   .fade-transition {
     transition: opacity .3s ease;
@@ -70,7 +69,7 @@
   }
 
   .main {
-    flex: 3 0px;
+    flex: 5 0;
     order: 1;
     display: flex;
     justify-content: flex-end;
@@ -78,12 +77,13 @@
 
   .aside {
     order: 2;
-    flex: 1 auto;
-    background-color: pink;
+    flex: 2 0;
+    display: flex;
   }
 
   .footer {
     order: 3;
-    background-color: mediumseagreen;
+    display: flex;
+    height:100px;
   }
 </style>
