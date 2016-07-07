@@ -14,7 +14,7 @@
 
 <script type="text/babel">
   import {contentList} from '../vuex/getters'
-  import {getContentList} from '../vuex/actions'
+  import {getContentList, updateHeadline} from '../vuex/actions'
 
   export default {
     vuex: {
@@ -22,18 +22,20 @@
         items: contentList
       },
       actions: {
-        getList: getContentList
+        getList: getContentList,
+        updateHeadline: updateHeadline
       }
     },
     created () {
       this.getList()
+      this.updateHeadline('将就的博客')
     }
   }
 </script>
 
 <style>
   .list-wrapper {
-    width: 84%;
+    width: 87%;
     transition: all .4s;
   }
 
@@ -70,7 +72,6 @@
   .list-container li a:hover {
     background-color: #ededed;
   }
-
 
 
 </style>

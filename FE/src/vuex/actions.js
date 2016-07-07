@@ -9,3 +9,11 @@ export const getContentList = function ({dispatch}) {
     dispatch(types.GET_CONTENT_LIST_FAILURE, error)
   })
 }
+
+export const getHeadline = ({dispatch}) => {
+  dispatch(types.GET_HEADLINE)
+}
+
+export const updateHeadline = ({dispatch}, value) => {
+  dispatch(types.UPDATE_HEADLINE, value)
+}

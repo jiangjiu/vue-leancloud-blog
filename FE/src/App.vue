@@ -2,7 +2,7 @@
   <div id="wrapper">
     <vheader class="header"></vheader>
     <div class="main">
-      <router-view transition="fade" transition-mode="out-in" keep-alive></router-view>
+      <router-view transition="fade" transition-mode="out-in"></router-view>
     </div>
     <aside class="aside"></aside>
     <vfooter class="footer"></vfooter>
@@ -69,7 +69,7 @@
   }
 
   .main {
-    flex: 5 0;
+    flex: 1 0 70%;
     order: 1;
     display: flex;
     justify-content: flex-end;
@@ -77,13 +77,13 @@
 
   .aside {
     order: 2;
-    flex: 2 0;
+    flex: 1 0 25%;
     display: flex;
   }
 
   .footer {
     order: 3;
     display: flex;
-    height:100px;
+    height: 100px;
   }
 </style>

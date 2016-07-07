@@ -52,7 +52,9 @@ pub.contentList = async(req, res) => {
     return query.find()
   }
   try {
+    //await 好喜欢!
     const data = await query()
+
     if (data) {
       let arr = []
       for (let item of data) {
@@ -62,9 +64,13 @@ pub.contentList = async(req, res) => {
         result.updatedAt = item.get('updatedAt').Format("yyyy-MM-dd hh:mm:ss")
         arr.push(result)
       }
+
       res.send(arr)
+    } else {
+      throw new Error('Can not find.');
     }
-  } catch (error) {
+  }
+  catch (error) {
     tool.l(error)
   }
 }

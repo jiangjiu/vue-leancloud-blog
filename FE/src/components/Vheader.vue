@@ -12,17 +12,35 @@
         <a v-link="'./tags'">标签</a>
       </li>
     </ul>
-    <div class="header-title"><h1>将就的博客</h1></div>
+    <div class="header-title"><h1 v-if="show" transition="fade">{{headlineFinal}}</h1></div>
   </div>
 </template>
 
 <script type="text/babel">
+  import {headline} from '../vuex/getters'
+
   export default {
     data () {
       return {
+        show: true,
         nav: 'nav',
         navFixed: 'nav-fixed',
-        isTop: true
+        isTop: true,
+        headlineFinal: ''
+      }
+    },
+    vuex: {
+      getters: {
+        headline: headline
+      }
+    },
+    watch: {
+      'headline': function (val, oldVal) {
+        this.show = false
+        setTimeout(() => {
+          this.show = true
+          this.headlineFinal = val
+        }, 400)
       }
     },
     ready () {
@@ -70,13 +88,14 @@
     flex-direction: column;
 
   }
+
   .header-background {
     z-index: -1;
     position: absolute;
-    height:360px;
-    width:100%;
-    left:0;
-    top:0;
+    height: 360px;
+    width: 100%;
+    left: 0;
+    top: 0;
     background: #9e9e9e url('../assets/banner.jpeg') 100% no-repeat;
     /*filter:blur(1px);*/
     background-size: cover;
