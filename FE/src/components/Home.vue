@@ -1,11 +1,12 @@
 <template>
   <div class="list-wrapper">
     <ul class="list-container" id="list-ul">
-      <li v-for="item in items">
+      <li v-for="item in items"  transition="staggered"
+          stagger="100">
         <a v-link="'./about'">
           <p class="list-title">{{item.title}}</p>
+          <p class="list-updated">{{item.createdAt}}</p>
           <p class="list-abstract"><i>{{item.abstract}}</i></p>
-          <p class="list-updated">{{item.updatedAt}}</p>
         </a>
       </li>
     </ul>
@@ -45,7 +46,7 @@
 
   .list-title {
     font-size: 26px;
-    font-weight: 700;
+    font-weight: 500;
     color: #404040;
     margin-top: 0;
   }
@@ -53,18 +54,19 @@
   .list-abstract {
     font-size: 16px;
     color: #919191;
+    font-weight: 100;
   }
 
   .list-updated {
     font-family: "Comic Sans MS", curslve, sans-serif;
     font-size: 18px;
     color: #8b8b8b;
-    margin-bottom: 0;
+    padding:5px 0;
   }
 
   .list-container li a {
     padding: 1rem 2rem;
-    background-color: #fff;
+    /*background-color: #;*/
     display: block;
     transition: all .3s;
   }
@@ -73,5 +75,14 @@
     background-color: #ededed;
   }
 
+  .staggered-transition {
+    transition: all .4s ease;
+    overflow: hidden;
+    margin: 0;
+  }
+  .staggered-enter, .staggered-leave {
+    opacity: 0;
+    height: 0;
+  }
 
 </style>

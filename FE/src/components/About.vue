@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <p>about</p>
+  <div class="about-wrapper">
+
   </div>
 </template>
 
@@ -17,3 +17,9 @@
     }
   }
 </script>
+
+<style>
+  .about-wrapper {
+    width:87%;
+  }
+</style>

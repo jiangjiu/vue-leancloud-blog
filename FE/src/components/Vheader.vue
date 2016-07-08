@@ -66,7 +66,7 @@
 
   .nav-fixed {
     color: #000;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid #bababa;
   }
 
@@ -96,7 +96,7 @@
     width: 100%;
     left: 0;
     top: 0;
-    background: #9e9e9e url('../assets/banner.jpeg') 100% no-repeat;
+    background: #9e9e9e url('../assets/banner.jpg') 100% no-repeat;
     /*filter:blur(1px);*/
     background-size: cover;
   }
@@ -111,5 +111,6 @@
 
   .header-title h1 {
     font-size: 50px;
+    font-weight:200;
   }
 </style>

@@ -7,6 +7,7 @@
 <style scoped>
   p {
     margin:auto;
+    color: #3d3d3d;
   }
 
 </style>

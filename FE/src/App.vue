@@ -35,6 +35,7 @@
   body {
     margin: 0;
     padding: 0;
+    background-color: #f9f9f9;
   }
 
   #wrapper {
@@ -50,7 +51,7 @@
     color: inherit;
   }
 
-  body ul, li {
+  body ul, li,p{
     list-style: none;
     margin: 0;
     padding: 0;

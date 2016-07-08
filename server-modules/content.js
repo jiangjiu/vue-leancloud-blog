@@ -47,7 +47,7 @@ pub.hello = (req, res) => {
 pub.contentList = async(req, res) => {
   const query = () => {
     const query = new AV.Query('ContentList')
-    query.descending('updatedAt')
+    query.descending('createdAt')
     // query.limit(20)
     return query.find()
   }
@@ -61,7 +61,7 @@ pub.contentList = async(req, res) => {
         let result = {}
         result.title = item.get('title')
         result.abstract = item.get('abstract')
-        result.updatedAt = item.get('updatedAt').Format("yyyy-MM-dd hh:mm:ss")
+        result.createdAt = item.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
         arr.push(result)
       }
 
