@@ -45,6 +45,7 @@
     "json-loader": "^0.5.4",
     "marked": "^0.3.5",
     "ora": "^0.2.0",
+    "prismjs": "^1.5.1",
     "shelljs": "^0.6.0",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
