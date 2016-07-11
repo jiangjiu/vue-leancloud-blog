@@ -20,6 +20,7 @@ router.get('/hello', content.hello);
 // 博客文章列表
 router.get('/content-list', content.contentList)
 
+router.get('/article/:id', content.article)
 
 
 // 测试 async/await 支持

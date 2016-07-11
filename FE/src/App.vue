@@ -29,13 +29,16 @@
 
 <style>
   html {
-    font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
   }
 
   body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
+    font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    color: #404040;
+    font-size: 16px;
+    line-height: 1.7;
   }
 
   #wrapper {
@@ -51,7 +54,7 @@
     color: inherit;
   }
 
-  body ul, li,p{
+  body ul, li, p {
     list-style: none;
     margin: 0;
     padding: 0;

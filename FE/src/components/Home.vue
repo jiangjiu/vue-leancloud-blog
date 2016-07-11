@@ -1,12 +1,12 @@
 <template>
   <div class="list-wrapper">
     <ul class="list-container" id="list-ul">
-      <li v-for="item in items"  transition="staggered"
+      <li v-for="item in items" transition="staggered"
           stagger="100">
-        <a v-link="'./about'">
+        <a v-link="{ name: 'article', params: {id: item.objectId}}">
           <p class="list-title">{{item.title}}</p>
           <p class="list-updated">{{item.createdAt}}</p>
-          <p class="list-abstract"><i>{{item.abstract}}</i></p>
+          <p class="list-abstract">{{item.abstract}}</p>
         </a>
       </li>
     </ul>
@@ -61,7 +61,7 @@
     font-family: "Comic Sans MS", curslve, sans-serif;
     font-size: 18px;
     color: #8b8b8b;
-    padding:5px 0;
+    padding: 5px 0;
   }
 
   .list-container li a {
@@ -69,6 +69,7 @@
     /*background-color: #;*/
     display: block;
     transition: all .3s;
+    margin:0;
   }
 
   .list-container li a:hover {
@@ -80,6 +81,7 @@
     overflow: hidden;
     margin: 0;
   }
+
   .staggered-enter, .staggered-leave {
     opacity: 0;
     height: 0;

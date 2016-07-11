@@ -3,13 +3,13 @@
     <div class="header-background"></div>
     <ul :class="[nav, isTop ? '' : navFixed]">
       <li>
-        <a v-link="'./home'">主页</a>
+        <a v-link="'/home'">主页</a>
       </li>
       <li>
-        <a v-link="'./about'">关于</a>
+        <a v-link="'/about'">关于</a>
       </li>
       <li>
-        <a v-link="'./tags'">标签</a>
+        <a v-link="'/tags'">标签</a>
       </li>
     </ul>
     <div class="header-title"><h1 v-if="show" transition="fade">{{headlineFinal}}</h1></div>

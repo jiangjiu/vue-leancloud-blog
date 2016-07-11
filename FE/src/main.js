@@ -3,6 +3,7 @@ import App from './App.vue'
 import Home from './components/Home'
 import About from './components/About'
 import Tags from './components/Tags'
+import Article from './components/Article'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
@@ -22,6 +23,10 @@ router.map({
   },
   '/tags': {
     component: resolve => resolve(Tags)
+  },
+  '/article/:id': {
+    name: 'article',
+    component: resolve => resolve(Article)
   }
   // '/time-entries': {
   //   component: function (resolve) {

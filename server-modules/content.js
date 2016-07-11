@@ -45,7 +45,7 @@ pub.hello = (req, res) => {
 
 // 获取文章列表
 pub.contentList = async(req, res) => {
-  const query = () => {
+  const queryContentList = () => {
     const query = new AV.Query('ContentList')
     query.descending('createdAt')
     // query.limit(20)
@@ -53,12 +53,13 @@ pub.contentList = async(req, res) => {
   }
   try {
     //await 好喜欢!
-    const data = await query()
+    const data = await queryContentList()
 
     if (data) {
       let arr = []
       for (let item of data) {
         let result = {}
+        result.objectId = item.get('objectId')
         result.title = item.get('title')
         result.abstract = item.get('abstract')
         result.createdAt = item.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
@@ -73,6 +74,31 @@ pub.contentList = async(req, res) => {
   catch (error) {
     tool.l(error)
   }
+}
+
+pub.article = async(req, res) => {
+  const id = req.params.id
+  const queryArticle = (id) => {
+    const query = new AV.Query('ContentList')
+    return query.get(id)
+  }
+
+  try {
+    const data = await queryArticle(id)
+
+    let result = {}
+    if (data) {
+      result.content = data.get('content')
+      result.title = data.get('title')
+      res.send(result)
+    } else {
+      throw new Error('article can not found')
+    }
+  } catch (error) {
+    tool.l(error)
+  }
+
+
 }
 
 module.exports = pub;
