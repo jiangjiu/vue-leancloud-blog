@@ -36,8 +36,7 @@
 
 <style>
   .list-wrapper {
-    width: 87%;
-    transition: all .4s;
+
   }
 
   .list-container li {

@@ -2,7 +2,7 @@
   <div id="wrapper">
     <vheader class="header"></vheader>
     <div class="main">
-      <router-view transition="fade" transition-mode="out-in"></router-view>
+      <router-view class="main-wrapper" transition="fade" transition-mode="out-in"></router-view>
     </div>
     <aside class="aside"></aside>
     <vfooter class="footer"></vfooter>
@@ -34,7 +34,7 @@
   body {
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    /*background-color: #f9f9f9;*/
     font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
     color: #404040;
     font-size: 16px;
@@ -50,7 +50,7 @@
     text-decoration: none;
   }
 
-  body a:link, a:visited {
+  .nav a:link, a:visited {
     color: inherit;
   }
 
@@ -59,7 +59,9 @@
     margin: 0;
     padding: 0;
   }
-
+  * {
+    box-sizing: border-box;
+  }
   .fade-transition {
     transition: opacity .3s ease;
   }
@@ -78,7 +80,10 @@
     display: flex;
     justify-content: flex-end;
   }
-
+.main-wrapper {
+  width: 87%;
+  transition: all .4s;
+}
   .aside {
     order: 2;
     flex: 1 0 25%;

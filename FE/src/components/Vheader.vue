@@ -73,7 +73,8 @@
   .nav a {
     font-size: 14px;
     display: block;
-    padding: 18px;
+    margin:0;
+    padding: 1rem;
     opacity: 1;
     transition: opacity 0.6s;
   }
