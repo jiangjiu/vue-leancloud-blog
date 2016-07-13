@@ -11,6 +11,8 @@
 - [vuex 状态管理](https://github.com/vuejs/vuex)
 - [vue-router 路由](https://github.com/vuejs/vue-router)
 - [vue-resource xhr请求](https://github.com/vuejs/vue-resource)
+- [marked 语法解析](https://github.com/chjj/marked)
+- [prismjs 代码高亮](http://prismjs.com/)
 
 
 ### 后端
