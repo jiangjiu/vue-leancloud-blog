@@ -74,7 +74,7 @@
     font-size: 14px;
     display: block;
     margin:0;
-    padding: 1rem;
+    padding: .7rem 1rem;
     opacity: 1;
     transition: opacity 0.6s;
   }
@@ -84,7 +84,7 @@
   }
 
   .header {
-    height: 360px;
+    height: 240px;
     display: flex;
     flex-direction: column;
 
@@ -93,7 +93,7 @@
   .header-background {
     z-index: -1;
     position: absolute;
-    height: 360px;
+    height: 240px;
     width: 100%;
     left: 0;
     top: 0;

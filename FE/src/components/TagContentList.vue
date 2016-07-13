@@ -1,7 +1,7 @@
 <template>
   <div class="list-wrapper">
-    <ul class="list-container" id="list-ul">
-      <li v-for="item in items" transition="fade">
+    <ul class="list-container" id="list-ul" v-if="show" transition="fade">
+      <li v-for="item in finalItems">
         <a v-link="{ name: 'article', params: {id: item.objectId}}">
           <p class="list-title">{{item.title}}</p>
           <p class="list-updated">{{item.createdAt}}</p>
@@ -13,22 +13,39 @@
 </template>
 
 <script type="text/babel">
-  import {contentList} from '../vuex/getters'
-  import {getContentList, updateHeadline} from '../vuex/actions'
+  import {tagContentList, tagContentListId} from '../vuex/getters'
+  import {getTagContentList, updateHeadline, clearTagContentList} from '../vuex/actions'
 
   export default {
+    data () {
+      return {
+        show: true,
+        finalItems: []
+      }
+    },
     vuex: {
       getters: {
-        items: contentList
+        items: tagContentList,
+        tagId: tagContentListId
       },
       actions: {
-        getList: getContentList,
-        updateHeadline: updateHeadline
+        getTagContentList: getTagContentList,
+        updateHeadline: updateHeadline,
+        clearTagContentList: clearTagContentList
       }
     },
     created () {
-      this.getList()
-      this.updateHeadline('将就的博客')
+      this.getTagContentList(this.tagId)
+      this.updateHeadline(this.$route.params.tagName)
+    },
+    watch: {
+      'items': function (val, oldVal) {
+        this.show = false
+        setTimeout(() => {
+          this.show = true
+          this.finalItems = val
+        }, 400)
+      }
     }
   }
 </script>
@@ -67,7 +84,7 @@
     /*background-color: #;*/
     display: block;
     transition: all .3s;
-    margin:0;
+    margin: 0;
   }
 
   .list-container li a:hover {

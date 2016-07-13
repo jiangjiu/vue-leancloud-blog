@@ -76,8 +76,10 @@ pub.contentList = async(req, res) => {
   }
 }
 
+//  获取指定 id 的文章信息
 pub.article = async(req, res) => {
   const id = req.params.id
+  
   const queryArticle = (id) => {
     const query = new AV.Query('ContentList')
     return query.get(id)

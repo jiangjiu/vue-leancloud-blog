@@ -3,6 +3,7 @@ import App from './App.vue'
 import Home from './components/Home'
 import About from './components/About'
 import Tags from './components/Tags'
+import Taglist from './components/TagContentList'
 import Article from './components/Article'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -22,7 +23,13 @@ router.map({
     component: resolve => resolve(About)
   },
   '/tags': {
-    component: resolve => resolve(Tags)
+    component: resolve => resolve(Tags),
+    subRoutes: {
+      '/:tagName': {
+        name: 'tag',
+        component: resolve => resolve(Taglist)
+      }
+    }
   },
   '/article/:id': {
     name: 'article',

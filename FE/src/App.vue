@@ -63,7 +63,7 @@
     box-sizing: border-box;
   }
   .fade-transition {
-    transition: opacity .3s ease;
+    transition: all .3s ease;
   }
 
   .fade-enter, .fade-leave {

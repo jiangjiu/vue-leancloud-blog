@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 import contentList from './modules/contentList'
 import headline from './modules/headline'
 import article from './modules/article'
+import tags from './modules/tags'
+import tagContentList from './modules/tagContentList'
 
 Vue.use(Vuex)
 Vue.config.debug = true
@@ -14,6 +16,8 @@ export default new Vuex.Store({
   modules: {
     contentList,
     headline,
-    article
+    article,
+    tags,
+    tagContentList
   }
 })
