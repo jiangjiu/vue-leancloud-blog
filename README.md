@@ -5,6 +5,18 @@
 
 采用了之前写的 vue.js+LeanCloud（node.js） 的开发样板 [github地址点此查看](https://github.com/jiangjiu/vue-leancloud-boilerplate)
 
+![](http://o9xa0n831.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D.gif)
+
+### version 0.1
+- 响应式布局
+- 主页，关于，标签
+- 过渡动画
+- 文章显示markdown 和代码高亮
+
+### TODO
+- 评论框
+- 触屏优化
+
 ## 技术栈
 ### 前端
 - [Vue.js](https://github.com/vuejs/vue)
