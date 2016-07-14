@@ -34,37 +34,33 @@
 </script>
 
 <style>
-  .list-wrapper {
-
-  }
 
   .list-container li {
     border-bottom: 1px solid #eee;
   }
 
   .list-title {
-    font-size: 26px;
-    font-weight: 500;
+    font-size: 2.6rem;
+    font-weight: 400;
     color: #404040;
     margin-top: 0;
   }
 
   .list-abstract {
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #919191;
-    font-weight: 100;
+    font-weight: 200;
   }
 
   .list-updated {
     font-family: "Comic Sans MS", curslve, sans-serif;
-    font-size: 18px;
+    font-size: 1.8rem;
     color: #8b8b8b;
     padding: 5px 0;
   }
 
   .list-container li a {
-    padding: 1rem 2rem;
-    /*background-color: #;*/
+    padding: 1rem 1.5rem;
     display: block;
     transition: all .3s;
     margin:0;
@@ -74,4 +70,13 @@
     background-color: #ededed;
   }
 
+  @media screen and (max-width: 768px) {
+    .list-title {
+      font-size: 2.2rem;
+    }
+
+    .list-updated {
+      font-size: 1.6rem;
+    }
+  }
 </style>

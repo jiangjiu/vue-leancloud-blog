@@ -69,19 +69,20 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
   }
 
   .tagset li {
-    margin: .2rem;
+    margin: .3rem;
   }
 
   .tagset li a {
     display: block;
     cursor: pointer;
-    padding: .2rem 1rem;
+    padding: .3rem 1.6rem;
     margin: 0;
     border: 1px solid #d2d2d2;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     color: #f7f7f7;
     background-color: rgb(196, 196, 196);
     transition: all .4s;
@@ -90,5 +91,13 @@
   .tagset li a:hover, .tagset .tagset-active {
     background-color: #efefef;
     color: #424242;
+  }
+  @media screen and (max-width: 768px) {
+    .tagset li a {
+      padding:.1rem 1rem;
+    }
+    .tagset li {
+      margin: .2rem;
+    }
   }
 </style>

@@ -47,12 +47,12 @@
 </script>
 
 <style>
-
   .article pre {
     padding: 1rem;
     font: 14px Consolas, "Liberation Mono", Menlo, Courier, monospace;
     background-color: #f7f7f7;
     white-space: pre-wrap;
+    overflow: auto;
     max-width: 800px;
   }
 
@@ -64,7 +64,7 @@
     border-collapse: collapse;
   }
 
-  .article td, th {
+  .article td, .article th {
     border: 1px solid #ddd;
     padding: .3rem .6rem;
   }
@@ -75,7 +75,6 @@
 
   .article a {
     color: #3a40ff;
-    display: block;
     transition: all .4s;
   }
 
@@ -83,23 +82,53 @@
     color: #80b2ff;
   }
 
-  .article img, code {
-    max-width: 90%;
+  .article img, .article code {
+    max-width: 100%;
   }
 
-  .article h1, h2 {
+  .article h1, .article h2 {
     border-bottom: 1px solid #d2d2d2;
     margin: 1rem 0;
   }
 
   .article ul {
-    padding: 0 1rem;
+    padding-left: 2rem;
   }
 
   .article li {
     list-style: disc;
   }
-  .article p{
-    padding: .1rem 0;
+
+  .article p, .article li {
+    margin-bottom: 1rem;
+  }
+
+  .article blockquote {
+    padding: 0 1.5rem;
+    margin: 0;
+    color: #777;
+    border-left: 4px solid #ddd;
+  }
+
+  @media screen and (max-width: 768px) {
+    .article {
+      padding: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .article h1 {
+      font-size: 2.4rem;
+    }
+
+    .article h2 {
+      font-size: 2.2rem;
+    }
+
+    .article h3 {
+      font-size: 2rem;
+    }
+    .article pre {
+      font-size: 1.2rem;
+    }
   }
 </style>

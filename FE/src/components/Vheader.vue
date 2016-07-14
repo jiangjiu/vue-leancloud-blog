@@ -71,10 +71,10 @@
   }
 
   .nav a {
-    font-size: 14px;
+    font-size: 1.4rem;
     display: block;
-    margin:0;
-    padding: .7rem 1rem;
+    margin: 0;
+    padding: 1.2rem 1.8rem;
     opacity: 1;
     transition: opacity 0.6s;
   }
@@ -84,7 +84,7 @@
   }
 
   .header {
-    height: 240px;
+    height: 30rem;
     display: flex;
     flex-direction: column;
 
@@ -93,25 +93,41 @@
   .header-background {
     z-index: -1;
     position: absolute;
-    height: 240px;
+    height: 30rem;
     width: 100%;
     left: 0;
     top: 0;
-    background: #9e9e9e url('../assets/banner.jpg') 100% no-repeat;
-    /*filter:blur(1px);*/
+    background: #9e9e9e url('../assets/banner.jpg') no-repeat;
     background-size: cover;
   }
 
   .header-title {
     color: #fff;
+    display: flex;
     align-self: center;
     margin: auto;
     justify-content: center;
     align-items: center;
+    max-width: 94%;
   }
 
   .header-title h1 {
-    font-size: 50px;
-    font-weight:200;
+    font-size: 4rem;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 768px) {
+    .header-title h1 {
+      font-size: 2.6rem;
+    }
+
+    .nav a {
+      font-size: 1.4rem;
+      padding: 1rem 1.4rem;
+    }
+
+    .header, .header-background {
+      height: 24rem;
+    }
   }
 </style>
