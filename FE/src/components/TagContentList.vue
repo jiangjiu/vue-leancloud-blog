@@ -13,7 +13,7 @@
 </template>
 
 <script type="text/babel">
-  import {tagContentList, tagContentListId} from '../vuex/getters'
+  import {tagContentList, tagContentListId, tags} from '../vuex/getters'
   import {getTagContentList, updateHeadline, clearTagContentList} from '../vuex/actions'
 
   export default {
@@ -26,7 +26,8 @@
     vuex: {
       getters: {
         items: tagContentList,
-        tagId: tagContentListId
+        tagId: tagContentListId,
+        tags: tags
       },
       actions: {
         getTagContentList: getTagContentList,
@@ -36,7 +37,6 @@
     },
     created () {
       this.getTagContentList(this.tagId)
-      this.updateHeadline(this.$route.params.tagName)
     },
     watch: {
       'items': function (val, oldVal) {
@@ -45,6 +45,12 @@
           this.show = true
           this.finalItems = val
         }, 400)
+      },
+      'tags': function (val) {
+        if (val) {
+          this.getTagContentList(val[0].objectId)
+          this.updateHeadline(val[0].tagName)
+        }
       }
     }
   }

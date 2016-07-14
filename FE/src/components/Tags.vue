@@ -3,22 +3,31 @@
     <div class="tagset">
       <ul>
         <li v-for="tag in tags">
-          <a @click="update(tag.tagName, tag.objectId)"
-             v-link="{name:'tag', params: {tagName: tag.tagName}, activeClass: 'tagset-active'}">
+          <a @click="update($index, tag.tagName, tag.objectId)"
+             :class="{'tagset-active': $index === selected}">
             {{tag.tagName}}
           </a>
         </li>
       </ul>
     </div>
-    <router-view keep-alive></router-view>
+    <tag-content-list></tag-content-list>
   </div>
 </template>
 
 <script type="text/babel">
   import {updateHeadline, getTags, getTagContentList} from '../vuex/actions'
   import {tags} from '../vuex/getters'
+  import TagContentList from './TagContentList'
 
   export default {
+    components: {
+      TagContentList
+    },
+    data () {
+      return {
+        selected: 0
+      }
+    },
     vuex: {
       getters: {
         tags: tags
@@ -30,13 +39,22 @@
       }
     },
     created () {
-      this.updateHeadline('标签')
       this.getTags()
     },
     methods: {
-      update (tagName, tagId) {
+      update (index, tagName, tagId) {
+        this.selected = index
         this.updateHeadline(tagName)
         this.getTagContentList(tagId)
+      },
+      watch: {
+        'tags': function (val, oldVal) {
+          console.log(oldVal)
+          if (val) {
+            this.updateHeadline(val[0].tagName)
+            console.log(2211)
+          }
+        }
       }
     }
   }
@@ -59,6 +77,7 @@
 
   .tagset li a {
     display: block;
+    cursor: pointer;
     padding: .2rem 1rem;
     margin: 0;
     border: 1px solid #d2d2d2;
