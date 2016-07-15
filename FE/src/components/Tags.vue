@@ -17,11 +17,12 @@
 <script type="text/babel">
   import {updateHeadline, getTags, getTagContentList} from '../vuex/actions'
   import {tags} from '../vuex/getters'
-  import TagContentList from './TagContentList'
 
   export default {
     components: {
-      TagContentList
+      TagContentList: function (resolve) {
+        require(['./TagContentList'], resolve)
+      }
     },
     data () {
       return {
@@ -92,10 +93,12 @@
     background-color: #efefef;
     color: #424242;
   }
+
   @media screen and (max-width: 768px) {
     .tagset li a {
-      padding:.1rem 1rem;
+      padding: .1rem 1rem;
     }
+
     .tagset li {
       margin: .2rem;
     }

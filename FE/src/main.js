@@ -1,9 +1,5 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Home from './components/Home'
-import About from './components/About'
-import Tags from './components/Tags'
-import Article from './components/Article'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
@@ -16,17 +12,25 @@ const router = new VueRouter()
 // 路由map
 router.map({
   '/home': {
-    component: Home
+    component: function (resolve) {
+      require(['./components/Home'], resolve)
+    }
   },
   '/about': {
-    component: resolve => resolve(About)
+    component: function (resolve) {
+      require(['./components/About'], resolve)
+    }
   },
   '/tags': {
-    component: resolve => resolve(Tags)
+    component: function (resolve) {
+      require(['./components/Tags'], resolve)
+    }
   },
   '/article/:id': {
     name: 'article',
-    component: resolve => resolve(Article)
+    component: function (resolve) {
+      require(['./components/Article'], resolve)
+    }
   }
 
 })
