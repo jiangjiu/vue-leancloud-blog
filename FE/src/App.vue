@@ -9,14 +9,12 @@
 </template>
 
 <script>
-  import Hello from './components/Hello'
   import Vheader from './components/Vheader'
   import Vfooter from './components/Vfooter'
   import Store from './vuex/store'
 
   export default {
     components: {
-      Hello,
       Vheader,
       Vfooter
     },

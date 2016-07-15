@@ -49,7 +49,7 @@
   .list-abstract {
     font-size: 1.6rem;
     color: #919191;
-    font-weight: 200;
+    font-weight: 300;
   }
 
   .list-updated {

@@ -47,6 +47,9 @@
 </script>
 
 <style>
+  .article {
+    margin:2rem auto;
+  }
   .article pre {
     padding: 1rem;
     font: 14px Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -113,6 +116,7 @@
   @media screen and (max-width: 768px) {
     .article {
       padding: 1rem;
+      margin:0;
       font-size: 1.4rem;
     }
 

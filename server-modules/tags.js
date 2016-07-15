@@ -50,6 +50,7 @@ pub.tagList = async(req, res) => {
     const targetTag = AV.Object.createWithoutData('Tags', tagId)
     const query = new AV.Query('ContentList')
     query.equalTo('relationTags', targetTag)
+    query.descending('createdAt')
     return query.find()
 
   }
