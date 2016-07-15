@@ -35,9 +35,6 @@
         clearTagContentList: clearTagContentList
       }
     },
-    created () {
-      this.getTagContentList(this.tagId)
-    },
     watch: {
       'items': function (val, oldVal) {
         this.show = false
