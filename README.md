@@ -14,10 +14,11 @@
 - 主页，关于，标签
 - 过渡动画
 - 文章显示markdown 和代码高亮
+- 触屏延迟优化
 
 ### TODO
-- 评论框
-- 触屏优化
+- 评论系统
+
 
 ## 技术栈
 ### 前端
@@ -27,6 +28,7 @@
 - [vue-resource xhr请求](https://github.com/vuejs/vue-resource)
 - [marked 语法解析](https://github.com/chjj/marked)
 - [prismjs 代码高亮](http://prismjs.com/)
+- [fastclick 解决移动端延迟问题](https://github.com/ftlabs/fastclick)
 
 
 ### 后端
