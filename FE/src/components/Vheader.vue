@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header-background"></div>
-    <ul :class="[nav, isTop ? '' : navFixed]">
+    <ul :class="['nav', { 'nav-fixed': !isTop, 'nav-invisible': !isVisible }]">
       <li>
         <a v-link="'/home'">主页</a>
       </li>
@@ -24,8 +24,8 @@
       return {
         show: true,
         nav: 'nav',
-        navFixed: 'nav-fixed',
         isTop: true,
+        isVisible: true,
         headlineFinal: ''
       }
     },
@@ -44,9 +44,25 @@
       }
     },
     ready () {
-      window.onscroll = () => {
-        let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-        this.isTop = scrollTop === 0
+      this.scroll()
+    },
+    methods: {
+      scroll () {
+        let beforeScrollTop = document.body.scrollTop
+
+        window.onscroll = () => {
+          const afterScrollTop = document.body.scrollTop
+          const delta = afterScrollTop - beforeScrollTop
+
+          this.isTop = afterScrollTop === 0
+
+          if (delta === 0) return false
+          beforeScrollTop = afterScrollTop
+          this.isVisible = delta <= 0
+          if (afterScrollTop < 48) {
+            this.isVisible = true
+          }
+        }
       }
     }
   }
@@ -68,6 +84,10 @@
     color: #000;
     background-color: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid #bababa;
+  }
+
+  .nav-invisible {
+    transform: translate(0, -4.8rem)
   }
 
   .nav a {
@@ -119,6 +139,10 @@
   @media screen and (max-width: 768px) {
     .header-title h1 {
       font-size: 2.6rem;
+    }
+
+    .nav-invisible {
+      transform: translate(0, -4.4rem)
     }
 
     .nav a {
