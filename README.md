@@ -9,12 +9,15 @@
 
 ![](http://o9xa0n831.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D.gif)
 
+
+### version 0.1.1
+- 触屏延迟优化
+
 ### version 0.1
 - 响应式布局
 - 主页，关于，标签
 - 过渡动画
 - 文章显示markdown 和代码高亮
-- 触屏延迟优化
 
 ### TODO
 - 评论系统
