@@ -15,8 +15,8 @@
 </template>
 
 <script type="text/babel">
-  import {updateHeadline, getTags, getTagContentList} from '../vuex/actions'
-  import {tags} from '../vuex/getters'
+  import { updateHeadline, getTags, getTagContentList } from '../vuex/actions'
+  import { tags } from '../vuex/getters'
 
   export default {
     components: {

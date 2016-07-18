@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/babel">
   import Vheader from './components/Vheader'
   import Vfooter from './components/Vfooter'
   import Store from './vuex/store'

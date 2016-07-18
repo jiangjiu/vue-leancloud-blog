@@ -2,7 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import FastClick from 'fastclick'
 
+FastClick.attach(document.body)
 // 注册两个插件
 Vue.use(VueResource)
 Vue.use(VueRouter)

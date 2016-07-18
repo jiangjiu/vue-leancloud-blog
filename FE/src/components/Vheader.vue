@@ -17,7 +17,7 @@
 </template>
 
 <script type="text/babel">
-  import {headline} from '../vuex/getters'
+  import { headline } from '../vuex/getters'
 
   export default {
     data () {
