@@ -14,6 +14,8 @@ const router = require('express').Router();
 // 添加一个模块
 const content = require('./content')
 const tags = require('./tags')
+const comments = require('./comments')
+
 
 // 一个 API 路由下的 hello 接口，访问 /api/hello
 // router.get('/hello', content.hello);
@@ -27,5 +29,8 @@ router.get('/article/:id', content.article)
 router.get('/tags', tags.tags)
 
 router.get('/tags/:tagId', tags.tagList)
+
+// comments
+router.get('/comments/:articleId', comments.commentsList)
 
 module.exports = router;

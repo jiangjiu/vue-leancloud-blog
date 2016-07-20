@@ -81,7 +81,7 @@
   }
 
   .nav-fixed {
-    color: #000;
+    color: rgba(0, 0, 0, .8);
     background-color: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid #bababa;
   }
@@ -96,7 +96,7 @@
     margin: 0;
     padding: 1.2rem 1.8rem;
     opacity: 1;
-    transition: opacity 0.6s;
+    transition: opacity 0.4s;
   }
 
   .nav a:hover {

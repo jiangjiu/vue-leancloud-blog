@@ -83,15 +83,15 @@
     padding: .3rem 1.6rem;
     margin: 0;
     border: 1px solid #d2d2d2;
-    border-radius: 2rem;
-    color: #f7f7f7;
-    background-color: rgb(196, 196, 196);
+    border-radius: .5rem;
+    color: rgba(0, 0, 0, .8);
+    background-color: #f7f7f7;
     transition: all .4s;
   }
 
   .tagset li a:hover, .tagset .tagset-active {
-    background-color: #efefef;
-    color: #424242;
+    background-color: #555555;
+    color: #fff;
   }
 
   @media screen and (max-width: 768px) {

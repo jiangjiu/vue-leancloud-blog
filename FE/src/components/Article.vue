@@ -1,6 +1,9 @@
 <template>
-  <div class="article">
-    <div v-html="content">zzz</div>
+  <div>
+    <div class="article">
+      <div v-html="content">zzz</div>
+    </div>
+      <comment></comment>
   </div>
 </template>
 
@@ -8,13 +11,17 @@
   import marked from 'marked'
   import Prism from 'prismjs'
   import 'prismjs/themes/prism.css'
-  import {article} from '../vuex/getters'
-  import {getArticle, updateHeadline, clearArticle} from '../vuex/actions'
+  import { article } from '../vuex/getters'
+  import { getArticle, updateHeadline, clearArticle } from '../vuex/actions'
+  import Comment from './Comment'
 
   marked.setOptions({
     highlight: (code) => Prism.highlight(code, Prism.languages.javascript)
   })
   export default {
+    components: {
+      Comment
+    },
     vuex: {
       getters: {
         article: article
@@ -48,8 +55,10 @@
 
 <style>
   .article {
-    margin:2rem auto;
+    margin: 2rem auto;
+    display: flex;
   }
+
   .article pre {
     padding: 1rem;
     font: 14px Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -77,7 +86,7 @@
   }
 
   .article a {
-    color: #3a40ff;
+    color: #4078c0;
     transition: all .4s;
   }
 
@@ -104,6 +113,7 @@
 
   .article p, .article li {
     margin-bottom: 1rem;
+    color: rgba(0, 0, 0, .8);
   }
 
   .article blockquote {
@@ -116,7 +126,7 @@
   @media screen and (max-width: 768px) {
     .article {
       padding: 1rem;
-      margin:0;
+      margin: 0;
       font-size: 1.4rem;
     }
 
@@ -131,6 +141,7 @@
     .article h3 {
       font-size: 2rem;
     }
+
     .article pre {
       font-size: 1.2rem;
     }

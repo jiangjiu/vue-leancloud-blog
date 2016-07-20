@@ -1,7 +1,7 @@
 <template>
   <div class="list-wrapper">
     <ul class="list-container" id="list-ul">
-      <li v-for="item in items" transition="fade">
+      <li v-for="item in items">
         <a v-link="{ name: 'article', params: {id: item.objectId}}">
           <p class="list-title">{{item.title}}</p>
           <p class="list-updated">{{item.createdAt}}</p>
@@ -34,7 +34,6 @@
 </script>
 
 <style>
-
   .list-container li {
     border-bottom: 1px solid #eee;
   }

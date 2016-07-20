@@ -6,6 +6,7 @@
     </div>
     <vfooter class="footer"></vfooter>
   </div>
+
 </template>
 
 <script type="text/babel">
@@ -63,7 +64,7 @@
   }
 
   .fade-transition {
-    transition: all .3s ease;
+    transition: all .4s ease;
   }
 
   .fade-enter, .fade-leave {
