@@ -91,7 +91,6 @@
           reply: this.formReply,
           articleId: this.articleId
         }
-        console.log(data)
         this.submitComment(data)
         this.formName = ''
         this.formContent = ''
