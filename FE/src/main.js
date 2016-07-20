@@ -9,6 +9,8 @@ FastClick.attach(document.body)
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
+Vue.http.options.emulateJSON = true
+
 const router = new VueRouter()
 
 // 路由map

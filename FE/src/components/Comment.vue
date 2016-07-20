@@ -18,35 +18,47 @@
 
         <p class="comment-item-content">{{item.content}}</p>
         <div class="comment-item-reply-wrapper">
-          <a class="comment-item-reply">回复</a>
+          <a @click="reply" class="comment-item-reply" data-id="{{item.objectId}}">回复</a>
         </div>
       </li>
     </ul>
-    <!--<div class="comment-input">-->
-      <!--<input type="text">-->
-      <!--<textarea name="" id="" cols="30" rows="10"></textarea>-->
-    <!--</div>-->
+    <h1 id="comment-form-title">回复{{replyName}}</h1>
+    <div class="comment-form">
+      <input v-model="formName" class="comment-form-name" type="text" placeholder="昵称" maxlength="20">
+      <textarea v-model="formContent" class="comment-form-content" name="" id="" cols="30" rows="10"
+                placeholder="内容"></textarea>
+      <div class="comment-item-reply-wrapper">
+        <a @click="submit" class="comment-item-reply comment-item-reply-submit">提交</a>
+      </div>
+    </div>
   </div>
 </template>
 
 <script type="text/babel">
-  import { getCommentsList } from '../vuex/actions'
+  import { getCommentsList, submitComment } from '../vuex/actions'
   import { commentsList } from '../vuex/getters'
 
   export default {
     data () {
-      return {}
+      return {
+        formName: '',
+        formContent: '',
+        formReply: '',
+        replyName: '',
+        articleId: this.$route.params.id
+      }
     },
     vuex: {
       actions: {
-        getCommentsList: getCommentsList
+        getCommentsList: getCommentsList,
+        submitComment: submitComment
       },
       getters: {
         commentsList: commentsList
       }
     },
     created () {
-      this.getCommentsList(this.$route.params.id)
+      this.getCommentsList(this.articleId)
     },
     computed: {
       finalCommentsList () {
@@ -66,11 +78,37 @@
           return item
         })
       }
+    },
+    methods: {
+      submit () {
+        if (!this.formName || !this.formContent) {
+          console.log('昵称和内容不可为空')
+          return
+        }
+        const data = {
+          name: this.formName,
+          content: this.formContent,
+          reply: this.formReply,
+          articleId: this.articleId
+        }
+        console.log(data)
+        this.submitComment(data)
+        this.formName = ''
+        this.formContent = ''
+      },
+      reply () {
+
+      }
     }
   }
 </script>
 
 <style>
+  .comment h1 {
+    border-bottom: 1px dashed #d2d2d2;
+    margin: 1rem;
+  }
+
   .comment-item {
     display: flex;
     flex-flow: column wrap;
@@ -113,12 +151,41 @@
 
   .comment-reply-container {
     /*background-color: rgba(0, 0, 0, .1);*/
-    border:1px solid #d2d2d2;
+    border: 1px solid #d2d2d2;
     border-radius: .5rem;
-    margin:1rem;
+    margin: 1rem;
     color: #7c7c7c;
   }
+
   .comment-reply-container .comment-item-title {
     background-color: #fbfbfb;
   }
+
+  .comment-form {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 1rem;
+  }
+
+  .comment-form-name, .comment-form-content {
+    border: 1px solid #d2d2d2;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+  }
+
+  .comment-form-name {
+    height: 3.6rem;
+  }
+
+  .comment-form-content {
+    resize: none;
+  }
+
+  .comment-item-reply-submit {
+    border: 1px solid #d2d2d2;
+    border-radius: .5rem;
+  }
+
 </style>

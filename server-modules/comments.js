@@ -11,6 +11,7 @@
 
 const tool = require('./tool');
 const AV = require('leanengine')
+const Comment = AV.Object.extend('Comments')
 
 let pub = {};
 
@@ -23,7 +24,7 @@ pub.commentsList = async(req, res) => {
   const queryComments = () => {
     const targetArticle = AV.Object.createWithoutData('ContentList', articleId)
     const query = new AV.Query('Comments')
-    query.descending('createdAt')
+    query.ascending('createdAt')
     query.equalTo('pointerArticle', targetArticle)
     return query.find()
   }
@@ -51,6 +52,44 @@ pub.commentsList = async(req, res) => {
   }
   catch (error) {
     tool.l(error)
+  }
+}
+
+pub.submitComment = async(req, res) => {
+  const name = req.body.name
+  const content = req.body.content
+  const reply = req.body.reply
+  const articleId = req.body.articleId
+
+  if (!name || !content) {
+    res.status(500).send('昵称和内容不可为空')
+  }
+
+  const getTargetArticle = () => {
+    const targetArticle = new AV.Query('ContentList')
+    return targetArticle.get(articleId)
+  }
+
+  const saveComment = async() => {
+    let comment = new Comment()
+    comment.set('name', name)
+    comment.set('content', content)
+    comment.set('reply', reply)
+
+    const targetArticle = await getTargetArticle()
+    comment.set('pointerArticle', targetArticle)
+
+    return comment.save()
+
+  }
+
+  try {
+    const data = await saveComment()
+
+    res.send(data)
+  } catch (error) {
+    tool.l(error)
+    res.status(500).send(error)
   }
 }
 

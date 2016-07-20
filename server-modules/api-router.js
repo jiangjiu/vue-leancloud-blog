@@ -33,4 +33,6 @@ router.get('/tags/:tagId', tags.tagList)
 // comments
 router.get('/comments/:articleId', comments.commentsList)
 
+router.post('/comments/submitComment',comments.submitComment )
+
 module.exports = router;

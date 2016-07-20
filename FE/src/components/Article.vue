@@ -55,7 +55,7 @@
 
 <style>
   .article {
-    margin: 2rem auto;
+    margin: 2rem 1rem;
     display: flex;
   }
 

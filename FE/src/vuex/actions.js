@@ -54,3 +54,11 @@ export const getCommentsList = function ({ dispatch }, articleId) {
     })
   })
 }
+// 提交评论
+export const submitComment = function ({ dispatch }, data) {
+  this.$http.post(API_ROOT + 'api/comments/submitComment', data).then(response => {
+    dispatch(types.SUBMIT_COMMENT, JSON.parse(response.body), error => {
+      dispatch(types.SUBMIT_COMMENT_FAILURE, error)
+    })
+  })
+}
