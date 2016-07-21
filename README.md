@@ -7,7 +7,7 @@
 
 [线上动图如果不显示请点这里](http://o9xa0n831.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D.gif)
 
-![](http://o9xa0n831.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D.gif)
+![](demo.gif)
 
 
 ### version 0.1.1
