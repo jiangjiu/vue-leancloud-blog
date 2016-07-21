@@ -86,7 +86,14 @@ pub.submitComment = async(req, res) => {
   try {
     const data = await saveComment()
 
-    res.send(data)
+    let result = {}
+    result.objectId = data.get('objectId')
+    result.name = data.get('name')
+    result.content = data.get('content')
+    result.reply = data.get('reply')
+    result.createdAt = data.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
+    tool.l(result)
+    res.send(result)
   } catch (error) {
     tool.l(error)
     res.status(500).send(error)

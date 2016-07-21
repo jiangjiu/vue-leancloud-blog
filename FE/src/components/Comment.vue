@@ -18,10 +18,11 @@
 
         <p class="comment-item-content">{{item.content}}</p>
         <div class="comment-item-reply-wrapper">
-          <a @click="reply" class="comment-item-reply" data-id="{{item.objectId}}">回复</a>
+          <a @click="reply(item.objectId, item.name)" class="comment-item-reply">回复</a>
         </div>
       </li>
     </ul>
+    <a name="firstAnchor"></a>
     <h1 id="comment-form-title">回复{{replyName}}</h1>
     <div class="comment-form">
       <input v-model="formName" class="comment-form-name" type="text" placeholder="昵称" maxlength="20">
@@ -64,10 +65,10 @@
       finalCommentsList () {
         return this.commentsList.map((item, index, arr) => {
           if (item.reply) {
-            const objectId = item.reply
+            const replyToId = item.reply
             let obj = {}
-            let reply = arr.find(data => data.objectId === objectId)
-            obj.objectId = objectId
+            let reply = arr.find(data => data.objectId === replyToId)
+            obj.objectId = item.objectId
             obj.name = item.name
             obj.createdAt = item.createdAt
             obj.content = item.content
@@ -82,7 +83,7 @@
     methods: {
       submit () {
         if (!this.formName || !this.formContent) {
-          console.log('昵称和内容不可为空')
+          window.alert('昵称和内容不可为空')
           return
         }
         const data = {
@@ -94,9 +95,14 @@
         this.submitComment(data)
         this.formName = ''
         this.formContent = ''
+        this.replyName = ''
+        this.formReply = ''
       },
-      reply () {
-
+      reply (replyToId, replyToName) {
+        this.replyName = replyToName
+        window.location.hash = ''
+        window.location.hash = 'firstAnchor'
+        this.formReply = replyToId
       }
     }
   }

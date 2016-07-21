@@ -2,17 +2,19 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import FastClick from 'fastclick'
 
 // 注册两个插件
 Vue.use(VueResource)
 Vue.use(VueRouter)
 Vue.http.options.emulateJSON = true
 
-FastClick.attach(window.document.body)
+const router = new VueRouter({
+  history: true,
+  hashbang: false
+})
 
-const router = new VueRouter()
-
+const FastClick = require('fastclick')
+FastClick.attach(document.body)
 // 路由map
 router.map({
   '/home': {
