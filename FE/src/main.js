@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import FastClick from 'fastclick'
 
 // 注册两个插件
 Vue.use(VueResource)
@@ -13,8 +14,7 @@ const router = new VueRouter({
   hashbang: false
 })
 
-const FastClick = require('fastclick')
-FastClick.attach(document.body)
+FastClick.attach(window.document.body)
 // 路由map
 router.map({
   '/home': {
