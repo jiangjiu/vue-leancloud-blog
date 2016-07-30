@@ -107,7 +107,7 @@
     height: 30rem;
     display: flex;
     flex-direction: column;
-
+    background-color: rgba(0, 0, 0, .2);
   }
 
   .header-background {
@@ -117,7 +117,7 @@
     width: 100%;
     left: 0;
     top: 0;
-    background: #9e9e9e url('../assets/banner.jpg') no-repeat;
+    background: rgba(0, 0, 0, .4) url('../assets/banner.jpg') no-repeat;
     background-size: cover;
   }
 
