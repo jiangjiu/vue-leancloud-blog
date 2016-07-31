@@ -66,7 +66,7 @@
   }
 
   .list-container li a:hover {
-    background-color: #ededed;
+    background-color: Rgba(0, 0, 0, .02);
   }
 
   @media screen and (max-width: 768px) {

@@ -82,11 +82,11 @@
     border-radius: .5rem;
     display: block;
     transition: all .3s;
-    margin:0;
+    margin: 0;
   }
 
   .list-container li a:hover {
-    background-color: #f7f7f7;
+    background-color: Rgba(0, 0, 0, .02);
   }
 
   @media screen and (max-width: 768px) {
