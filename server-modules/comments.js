@@ -61,7 +61,7 @@ pub.submitComment = async(req, res) => {
   const reply = req.body.reply
   const articleId = req.body.articleId
 
-  if (!name || !content) {
+  if (!name.trim() || !content.trim()) {
     res.status(500).send('昵称和内容不可为空')
   }
 

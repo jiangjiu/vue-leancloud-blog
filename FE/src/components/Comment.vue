@@ -82,7 +82,7 @@
     },
     methods: {
       submit () {
-        if (!this.formName || !this.formContent) {
+        if (!this.formName.trim() || !this.formContent.trim()) {
           window.alert('昵称和内容不可为空')
           return
         }

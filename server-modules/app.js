@@ -71,8 +71,10 @@ app.use('/api', apiRouter);
 // 如果任何路由都没匹配到，则认为 404
 // 生成一个异常让后面的 err handler 捕获
 app.use((req, res, next) => {
+  tool.l('zhetm 是个啥')
+
+
   res.sendFile(path.dirname(require.main.filename) + '/public/index.html');
   // res.status(404);
 });
-
 module.exports = app;
