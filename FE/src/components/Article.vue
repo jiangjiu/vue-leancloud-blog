@@ -74,6 +74,7 @@
 
   .article table {
     border-collapse: collapse;
+    margin-bottom:1rem;
   }
 
   .article td, .article th {
